@@ -1,0 +1,15 @@
+<table *ngIf="launches.length > 0">
+	<thead>
+		<tr>
+			<th>Launch ID</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let launch of launches">
+			<td>
+				{{launch.id}} </td>
+		</tr>
+	</tbody>
+</table>
+
+<p *ngIf="launches.length == 0">Loading launches...</p>
