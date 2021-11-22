@@ -1,13 +1,36 @@
-<table *ngIf="launches.length > 0">
+<div>
+    <label for="launchPadFilter">Filter by Launchpad:</label>
+    <select class="form-control" id="launchPadFilter"  [(ngModel)]="launchpadIdFilter">
+        <option *ngFor="let launchpad of launchpads" [value]="launchpad.id">{{launchpad.name}}</option>
+    </select>
+    <button type="button" (click)="clearFilter()">Clear Filter</button>
+</div>
+<table *ngIf="launches.length > 0" class="launchesTables">
 	<thead>
 		<tr>
 			<th>Launch ID</th>
+			<th>Display Name</th>
+			<th>Flight Number</th>
+			<th>Date of Launch</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let launch of launches">
+		<tr *ngFor="let launch of getFilteredLaunches()">
 			<td>
-				{{launch.id}} </td>
+				{{launch.id}} 
+			</td>
+			<td>
+				{{launch.name}} 
+			</td>
+			<td>
+				{{launch.flight_number}} 
+			</td>
+			<td>
+				{{launch.date_utc}} 
+			</td>
+			<td>
+				<a routerLink="/launchdetails/{{launch.id}}">Launch Details</a>
+			</td>
 		</tr>
 	</tbody>
 </table>
