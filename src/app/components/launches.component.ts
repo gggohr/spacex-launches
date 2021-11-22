@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { combineLatest, map } from "rxjs";
 import { ILaunch } from "../models/launch.model";
 import { ILaunchpad } from "../models/launchpad.model";
 import { SpaceXService } from "../services/spaceX.service";
